@@ -30,9 +30,6 @@ let PaddleCategoryName = "paddle"
 let BlockCategoryName = "block"
 let GameMessageName = "gameMessage"
 
-var isFingerOnPaddle = false
-
-
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
 let BlockCategory  : UInt32 = 0x1 << 2
@@ -40,6 +37,8 @@ let PaddleCategory : UInt32 = 0x1 << 3
 let BorderCategory : UInt32 = 0x1 << 4
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    var isFingerOnPaddle = false
+
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody: SKPhysicsBody
         var secondBody: SKPhysicsBody
@@ -58,20 +57,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
         print("Ball CGVector(dx: ", Int(ball.physicsBody!.velocity.dx), ", dy: ", Int(ball.physicsBody!.velocity.dy), ")")
+
+        if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory {
+            breakBlock(node: secondBody.node!)
+            //TODO: check if the game has been won
+        }
     }
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
     // Add edge barrier
     let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
+    borderBody.allowsRotation = false
     borderBody.friction = 0
-    borderBody.restitution = 1
+    //borderBody.restitution = 1
+    borderBody.isDynamic = false
     self.physicsBody = borderBody
 
     // Remove gravity
     physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
     physicsWorld.contactDelegate = self
-    
+
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
     ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
 
@@ -89,7 +95,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
 
-    ball.physicsBody!.contactTestBitMask = BottomCategory
+    ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory
+
+    // Add block
+    let numberOfBlocks = 8
+    let blockWidth = SKSpriteNode(imageNamed: "block").size.width
+    let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
+
+    let xOffset = (frame.width - totalBlocksWidth) / 2
+
+    for i in 0..<numberOfBlocks {
+        let block = SKSpriteNode(imageNamed: "block.png")
+        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth, y: frame.height * 0.8)
+
+        block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
+        block.physicsBody!.allowsRotation = false
+        block.physicsBody!.friction = 0.0
+        block.physicsBody!.affectedByGravity = false
+        block.physicsBody!.isDynamic = false
+        block.name = BlockCategoryName
+        block.physicsBody!.categoryBitMask = BlockCategory
+        block.zPosition = 2
+        addChild(block)
+    }
   }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -125,8 +153,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             paddle.position = CGPoint(x: paddleX, y: paddle.position.y)
         }
     }
+
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         isFingerOnPaddle = false
+    }
+
+    func breakBlock(node: SKNode) {
+        let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
+        particles.position = node.position
+        particles.zPosition = 3
+        addChild(particles)
+        particles.run(SKAction.sequence([SKAction.wait(forDuration: 1.0), SKAction.removeFromParent()]))
+        node.removeFromParent()
     }
 }

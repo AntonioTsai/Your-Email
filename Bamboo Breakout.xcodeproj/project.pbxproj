@@ -30,7 +30,7 @@
 		F577B38B1CB81F840005E827 /* Bamboo Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bamboo Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		F577B3921CB81F840005E827 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		F577B3921CB81F840005E827 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		F577B3941CB81F840005E827 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		F577B3971CB81F840005E827 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F577B3991CB81F840005E827 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,6 +156,7 @@
 				TargetAttributes = {
 					F577B38A1CB81F840005E827 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = K5H8FRF95P;
 						LastSwiftMigration = 0800;
 					};
 				};
@@ -329,9 +330,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K5H8FRF95P;
 				INFOPLIST_FILE = "Bamboo Breakout/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Bamboo-Breakout";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antonio.Bamboo-Breakout";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -341,9 +343,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K5H8FRF95P;
 				INFOPLIST_FILE = "Bamboo Breakout/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.razeware.Bamboo-Breakout";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.antonio.Bamboo-Breakout";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
