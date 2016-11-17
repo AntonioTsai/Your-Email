@@ -110,7 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
     // Use this when Game Start
     //ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
-    ball.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * 0.7)
+    ball.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * 0.5)
 
     // Add bottom edge
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
