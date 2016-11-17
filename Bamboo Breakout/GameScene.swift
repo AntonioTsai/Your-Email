@@ -88,6 +88,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
+
+    // Set BG
+    let bg = SKSpriteNode(imageNamed: "bg")
+    bg.size.height = self.size.height
+    bg.size.width = self.size.width
+    bg.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+
     // Add edge barrier
     let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
     borderBody.allowsRotation = false
