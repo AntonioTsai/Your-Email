@@ -35,7 +35,7 @@
 		A97154E01DDDFC3200099CF3 /* Flag_of_the_United_States.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Flag_of_the_United_States.svg.png; path = ../../Assets/Flag_of_the_United_States.svg.png; sourceTree = "<group>"; };
 		A97154E11DDDFC3200099CF3 /* Hillary_Clinton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hillary_Clinton.png; path = ../../Assets/Hillary_Clinton.png; sourceTree = "<group>"; };
 		A97154E21DDDFC3200099CF3 /* Statue_of_liberty.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Statue_of_liberty.jpg; path = ../../Assets/Statue_of_liberty.jpg; sourceTree = "<group>"; };
-		F577B38B1CB81F840005E827 /* Bamboo Breakout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bamboo Breakout.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F577B38B1CB81F840005E827 /* Your Email.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Email.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		F577B3921CB81F840005E827 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 1; };
@@ -70,7 +70,7 @@
 		F577B3821CB81F840005E827 = {
 			isa = PBXGroup;
 			children = (
-				F577B38D1CB81F840005E827 /* Bamboo Breakout */,
+				F577B38D1CB81F840005E827 /* Your Email */,
 				F577B38C1CB81F840005E827 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -78,12 +78,12 @@
 		F577B38C1CB81F840005E827 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F577B38B1CB81F840005E827 /* Bamboo Breakout.app */,
+				F577B38B1CB81F840005E827 /* Your Email.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F577B38D1CB81F840005E827 /* Bamboo Breakout */ = {
+		F577B38D1CB81F840005E827 /* Your Email */ = {
 			isa = PBXGroup;
 			children = (
 				F577B38E1CB81F840005E827 /* AppDelegate.swift */,
@@ -102,6 +102,7 @@
 				F577B3B01CB8210A0005E827 /* Sounds */,
 				F577B39E1CB81F840005E827 /* Info.plist */,
 			);
+			name = "Your Email";
 			path = "Bamboo Breakout";
 			sourceTree = "<group>";
 		};
@@ -139,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F577B38A1CB81F840005E827 /* Bamboo Breakout */ = {
+		F577B38A1CB81F840005E827 /* Your Email */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F577B3A11CB81F840005E827 /* Build configuration list for PBXNativeTarget "Bamboo Breakout" */;
+			buildConfigurationList = F577B3A11CB81F840005E827 /* Build configuration list for PBXNativeTarget "Your Email" */;
 			buildPhases = (
 				F577B3871CB81F840005E827 /* Sources */,
 				F577B3881CB81F840005E827 /* Frameworks */,
@@ -151,9 +152,9 @@
 			);
 			dependencies = (
 			);
-			name = "Bamboo Breakout";
+			name = "Your Email";
 			productName = "Bamboo Breakout";
-			productReference = F577B38B1CB81F840005E827 /* Bamboo Breakout.app */;
+			productReference = F577B38B1CB81F840005E827 /* Your Email.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -173,7 +174,7 @@
 					};
 				};
 			};
-			buildConfigurationList = F577B3861CB81F840005E827 /* Build configuration list for PBXProject "Bamboo Breakout" */;
+			buildConfigurationList = F577B3861CB81F840005E827 /* Build configuration list for PBXProject "Your Email" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -186,7 +187,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F577B38A1CB81F840005E827 /* Bamboo Breakout */,
+				F577B38A1CB81F840005E827 /* Your Email */,
 			);
 		};
 /* End PBXProject section */
@@ -371,7 +372,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F577B3861CB81F840005E827 /* Build configuration list for PBXProject "Bamboo Breakout" */ = {
+		F577B3861CB81F840005E827 /* Build configuration list for PBXProject "Your Email" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F577B39F1CB81F840005E827 /* Debug */,
@@ -380,7 +381,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F577B3A11CB81F840005E827 /* Build configuration list for PBXNativeTarget "Bamboo Breakout" */ = {
+		F577B3A11CB81F840005E827 /* Build configuration list for PBXNativeTarget "Your Email" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F577B3A21CB81F840005E827 /* Debug */,
