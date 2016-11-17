@@ -18,6 +18,7 @@ class WaitingForTap: GKState {
   }
   
   override func didEnter(from previousState: GKState?) {
+    // Show the "TAP TO START" message
     let scale = SKAction.scale(to: 1.0, duration: 0.25)
     scene.childNode(withName: GameMessageName)!.run(scale)
   }

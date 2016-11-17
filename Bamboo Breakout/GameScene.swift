@@ -24,6 +24,7 @@
  */ 
 
 import SpriteKit
+// GameState is in GameplayKit
 import GameplayKit
 
 let BallCategoryName = "ball"
@@ -31,6 +32,7 @@ let PaddleCategoryName = "paddle"
 let BlockCategoryName = "block"
 let GameMessageName = "gameMessage"
 
+// Define bitMask for Contact.
 let BallCategory   : UInt32 = 0x1 << 0
 let BottomCategory : UInt32 = 0x1 << 1
 let BlockCategory  : UInt32 = 0x1 << 2
@@ -40,6 +42,8 @@ let BorderCategory : UInt32 = 0x1 << 4
 class GameScene: SKScene, SKPhysicsContactDelegate {
     var isFingerOnPaddle = false
 
+    // Create state machine
+    // The array in GKStateMachine is the state we need
     lazy var gameState: GKStateMachine = GKStateMachine(states: [WaitingForTap(scene: self), Playing(scene: self), GameOver(scene: self)])
     
     var gameWin : Bool = false {
@@ -53,11 +57,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
 
+    //  Implement didBegin(_:) to handle the collisions
     func didBegin(_ contact: SKPhysicsContact) {
         if gameState.currentState is Playing {
             var firstBody: SKPhysicsBody
             var secondBody: SKPhysicsBody
 
+            // Sort collisions item in order
             if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
                 firstBody = contact.bodyA
                 secondBody = contact.bodyB
@@ -67,18 +73,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
 
             if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BottomCategory {
-                //print("Hit bottom.")
+                // Change State because ball hit bottom
                 gameState.enter(GameOver.self)
                 gameWin = false
             }
 
-            let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
-            print("Ball CGVector(dx: ", Int(ball.physicsBody!.velocity.dx), ", dy: ", Int(ball.physicsBody!.velocity.dy), ")")
-
             if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory {
                 breakBlock(node: secondBody.node!)
-                //TODO: check if the game has been win
+                // Check if the game has been win
                 if isGameWin() {
+                    // Change State because no block on the screen
                     gameState.enter(GameOver.self)
                     gameWin = true
                 }
@@ -95,7 +99,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     bg.size.width = self.size.width
     bg.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
 
-    // Add edge barrier
+    // Add edges to each side of screen
     let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
     borderBody.allowsRotation = false
     borderBody.friction = 0
@@ -108,11 +112,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     physicsWorld.contactDelegate = self
 
     let ball = childNode(withName: BallCategoryName) as! SKSpriteNode
-    // Use this when Game Start
-    //ball.physicsBody!.applyImpulse(CGVector(dx: 2.0, dy: -2.0))
+    // Set the initial position of ball to center
     ball.position = CGPoint(x: self.frame.midX, y: self.frame.maxY * 0.5)
 
-    // Add bottom edge
+    // Add bottom edge to detect gameover
     let bottomRect = CGRect(x: frame.origin.x, y: frame.origin.y, width: frame.size.width, height: 1)
     let bottom = SKNode()
     bottom.physicsBody = SKPhysicsBody(edgeLoopFrom: bottomRect)
@@ -121,18 +124,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Setup masks
     let paddle = childNode(withName: PaddleCategoryName) as! SKSpriteNode
 
+    // Set bitMask to each object
     bottom.physicsBody!.categoryBitMask = BottomCategory
     ball.physicsBody!.categoryBitMask = BallCategory
     paddle.physicsBody!.categoryBitMask = PaddleCategory
     borderBody.categoryBitMask = BorderCategory
 
+    // Will be notified when ball contact with bottom or block
     ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory
 
-    // Add block
+    // Add blocks
     let numberOfBlocks = 28
     let blockWidth = SKSpriteNode(imageNamed: "block").size.width
     let blockHeight = SKSpriteNode(imageNamed: "block").size.height
 
+    // xOffset will be used to place the block center
     let xOffset = (frame.width - blockWidth * 7) / 2
     var yOffset : CGFloat = 0
 
@@ -168,8 +174,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // Enter when touch the screen
         switch gameState.currentState {
         case is WaitingForTap:
+            // Start game if touched
             gameState.enter(Playing.self)
             isFingerOnPaddle = true
         case is Playing:
@@ -184,6 +192,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         case is GameOver:
+            // Touch to create a new scene, then enter state WaitingForTap
             let newScene = GameScene(fileNamed: "GameScene")
             newScene!.scaleMode = .aspectFit
             let reveal = SKTransition.flipHorizontal(withDuration: 0.5)
@@ -222,6 +231,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         gameState.update(deltaTime: currentTime)
     }
 
+    // Show special effect when ball hit block
     func breakBlock(node: SKNode) {
         let particles = SKEmitterNode(fileNamed: "BrokenPlatform")!
         particles.position = node.position
@@ -236,6 +246,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         return (rand) * (to - from) + from
     }
     
+    // Check if there is any block
     func isGameWin() -> Bool {
         var numberOfBricks = 0
         self.enumerateChildNodes(withName: BlockCategoryName) {

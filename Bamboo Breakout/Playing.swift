@@ -20,6 +20,7 @@ class Playing: GKState {
   override func didEnter(from previousState: GKState?) {
     if previousState is WaitingForTap {
         let ball = scene.childNode(withName: BallCategoryName) as! SKSpriteNode
+        // Set a random impulse to ball, impluse != force
         ball.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: randomDirection()))
     }
   }
@@ -34,6 +35,7 @@ class Playing: GKState {
     let speed = sqrt(ball.physicsBody!.velocity.dx * ball.physicsBody!.velocity.dx +
     ball.physicsBody!.velocity.dy * ball.physicsBody!.velocity.dy)
     
+    // Detect when speed of ball is too slow
     if xSpeed <= 10.0 {
         ball.physicsBody!.applyImpulse(CGVector(dx: randomDirection(), dy: 0.0))
     }
@@ -52,6 +54,7 @@ class Playing: GKState {
     return stateClass is GameOver.Type
   }
 
+    // Generate a random direction
     func randomDirection() -> CGFloat {
         let speedFactor: CGFloat = 3.0
         if scene.randomFloat(from: 0.0, to: 100.0) >= 50 {
