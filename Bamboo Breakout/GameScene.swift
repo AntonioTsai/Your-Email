@@ -129,15 +129,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ball.physicsBody!.contactTestBitMask = BottomCategory | BlockCategory
 
     // Add block
-    let numberOfBlocks = 8
+    let numberOfBlocks = 28
     let blockWidth = SKSpriteNode(imageNamed: "block").size.width
-    let totalBlocksWidth = blockWidth * CGFloat(numberOfBlocks)
+    let blockHeight = SKSpriteNode(imageNamed: "block").size.height
 
-    let xOffset = (frame.width - totalBlocksWidth) / 2
+    let xOffset = (frame.width - blockWidth * 7) / 2
+    var yOffset : CGFloat = 0
 
     for i in 0..<numberOfBlocks {
         let block = SKSpriteNode(imageNamed: "block.png")
-        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i) + 0.5) * blockWidth, y: frame.height * 0.8)
+        
+        // Next Line
+        if(i != 0 && i % 7 == 0) {
+            yOffset = yOffset + blockHeight
+        }
+        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i % 7) + 0.5) * blockWidth, y: frame.height * 0.8 - yOffset)
 
         block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
         block.physicsBody!.allowsRotation = false
