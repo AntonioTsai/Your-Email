@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A96137F41E1ECB77008696E1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A96137F31E1ECB77008696E1 /* libsqlite3.tbd */; };
+		A96137F71E1ECDBA008696E1 /* SQLiteConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96137F61E1ECDBA008696E1 /* SQLiteConnect.swift */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		A96137F31E1ECB77008696E1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		A96137F51E1ECBE6008696E1 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
+		A96137F61E1ECDBA008696E1 /* SQLiteConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteConnect.swift; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Your Email.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Email.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				F577B3AB1CB820F60005E827 /* Particles */,
 				F577B3B01CB8210A0005E827 /* Sounds */,
 				F577B39E1CB81F840005E827 /* Info.plist */,
+				A96137F61E1ECDBA008696E1 /* SQLiteConnect.swift */,
 			);
 			path = "Your Email";
 			sourceTree = SOURCE_ROOT;
@@ -224,6 +227,7 @@
 				F577B3951CB81F840005E827 /* GameViewController.swift in Sources */,
 				F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */,
 				F577B3A71CB8208A0005E827 /* GameOver.swift in Sources */,
+				A96137F71E1ECDBA008696E1 /* SQLiteConnect.swift in Sources */,
 				F577B3A81CB8208A0005E827 /* Playing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
