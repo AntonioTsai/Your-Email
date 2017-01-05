@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A96137F41E1ECB77008696E1 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A96137F31E1ECB77008696E1 /* libsqlite3.tbd */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -27,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A96137F31E1ECB77008696E1 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		A96137F51E1ECBE6008696E1 /* BridgeHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgeHeader.h; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Your Email.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Email.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -53,17 +56,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96137F41E1ECB77008696E1 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A96137F21E1ECB76008696E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A96137F31E1ECB77008696E1 /* libsqlite3.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F577B3821CB81F840005E827 = {
 			isa = PBXGroup;
 			children = (
 				F577B38D1CB81F840005E827 /* Your Email */,
 				F577B38C1CB81F840005E827 /* Products */,
+				A96137F21E1ECB76008696E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -78,6 +91,7 @@
 		F577B38D1CB81F840005E827 /* Your Email */ = {
 			isa = PBXGroup;
 			children = (
+				A96137F51E1ECBE6008696E1 /* BridgeHeader.h */,
 				F577B38E1CB81F840005E827 /* AppDelegate.swift */,
 				F577B3941CB81F840005E827 /* GameViewController.swift */,
 				F577B3901CB81F840005E827 /* GameScene.sks */,
