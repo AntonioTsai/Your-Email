@@ -31,6 +31,7 @@ let BallCategoryName = "ball"
 let PaddleCategoryName = "paddle"
 let BlockCategoryName = "block"
 let GameMessageName = "gameMessage"
+let ScoreMessageName = "score"
 
 // Define bitMask for Contact.
 let BallCategory   : UInt32 = 0x1 << 0
@@ -80,6 +81,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
             if firstBody.categoryBitMask == BallCategory && secondBody.categoryBitMask == BlockCategory {
                 breakBlock(node: secondBody.node!)
+
+                // change score
+                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
+                let s = Int(score.text!)
+                score.text = String(s! + 1)
+
                 // Check if the game has been win
                 if isGameWin() {
                     // Change State because no block on the screen
