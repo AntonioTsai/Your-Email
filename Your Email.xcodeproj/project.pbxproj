@@ -15,6 +15,7 @@
 		A9DCBFA81E1F431600AC6ED0 /* Scores+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFA61E1F431600AC6ED0 /* Scores+CoreDataClass.swift */; };
 		A9DCBFA91E1F431600AC6ED0 /* Scores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFA71E1F431600AC6ED0 /* Scores+CoreDataProperties.swift */; };
 		A9DCBFAB1E1F435700AC6ED0 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFAA1E1F435700AC6ED0 /* CoreDataConnect.swift */; };
+		A9DCBFAD1E1F4A9500AC6ED0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFAC1E1F4A9500AC6ED0 /* DataController.swift */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -44,6 +45,7 @@
 		A9DCBFA61E1F431600AC6ED0 /* Scores+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scores+CoreDataClass.swift"; sourceTree = "<group>"; };
 		A9DCBFA71E1F431600AC6ED0 /* Scores+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scores+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		A9DCBFAA1E1F435700AC6ED0 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
+		A9DCBFAC1E1F4A9500AC6ED0 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Your Email.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Email.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -123,6 +125,7 @@
 				F577B3AB1CB820F60005E827 /* Particles */,
 				F577B3B01CB8210A0005E827 /* Sounds */,
 				F577B39E1CB81F840005E827 /* Info.plist */,
+				A9DCBFAC1E1F4A9500AC6ED0 /* DataController.swift */,
 			);
 			path = "Your Email";
 			sourceTree = SOURCE_ROOT;
@@ -252,6 +255,7 @@
 				A9DCBF961E1EDA0700AC6ED0 /* MenuScene.swift in Sources */,
 				A9DCBF9C1E1F3C3400AC6ED0 /* ScoreScene.swift in Sources */,
 				A9DCBFA11E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld in Sources */,
+				A9DCBFAD1E1F4A9500AC6ED0 /* DataController.swift in Sources */,
 				F577B3A81CB8208A0005E827 /* Playing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

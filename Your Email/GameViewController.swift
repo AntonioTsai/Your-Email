@@ -25,11 +25,27 @@
 
 import UIKit
 import SpriteKit
+import CoreData
 
 class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        // Connect to CoreData
+        let myEntityName = "Scores"
+        let moc = DataController().managedObjectContext
+        let coreDataConnect = CoreDataConnect(moc: moc)
+
+        // Auto increment
+        let myUserDefaults =
+            UserDefaults.standard
+        var seq = 1
+        if let idSeq = myUserDefaults.object(forKey: "idSeq")
+            as? Int {
+            seq = idSeq + 1
+        }
+
         //if let scene = GameScene(fileNamed:"GameScene") {
         if let scene = MenuScene(fileNamed:"MenuScene") {
             // Configure the view.
