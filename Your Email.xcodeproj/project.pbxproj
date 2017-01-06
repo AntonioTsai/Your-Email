@@ -11,6 +11,10 @@
 		A9DCBF961E1EDA0700AC6ED0 /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBF951E1EDA0700AC6ED0 /* MenuScene.swift */; };
 		A9DCBF9A1E1F3C1D00AC6ED0 /* ScoreScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = A9DCBF991E1F3C1D00AC6ED0 /* ScoreScene.sks */; };
 		A9DCBF9C1E1F3C3400AC6ED0 /* ScoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBF9B1E1F3C3400AC6ED0 /* ScoreScene.swift */; };
+		A9DCBFA11E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBF9F1E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld */; };
+		A9DCBFA81E1F431600AC6ED0 /* Scores+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFA61E1F431600AC6ED0 /* Scores+CoreDataClass.swift */; };
+		A9DCBFA91E1F431600AC6ED0 /* Scores+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFA71E1F431600AC6ED0 /* Scores+CoreDataProperties.swift */; };
+		A9DCBFAB1E1F435700AC6ED0 /* CoreDataConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9DCBFAA1E1F435700AC6ED0 /* CoreDataConnect.swift */; };
 		F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B38E1CB81F840005E827 /* AppDelegate.swift */; };
 		F577B3911CB81F840005E827 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = F577B3901CB81F840005E827 /* GameScene.sks */; };
 		F577B3931CB81F840005E827 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = F577B3921CB81F840005E827 /* GameScene.swift */; };
@@ -36,6 +40,10 @@
 		A9DCBF951E1EDA0700AC6ED0 /* MenuScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		A9DCBF991E1F3C1D00AC6ED0 /* ScoreScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = ScoreScene.sks; sourceTree = "<group>"; };
 		A9DCBF9B1E1F3C3400AC6ED0 /* ScoreScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreScene.swift; sourceTree = "<group>"; };
+		A9DCBFA01E1F3E8300AC6ED0 /* ScoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ScoreModel.xcdatamodel; sourceTree = "<group>"; };
+		A9DCBFA61E1F431600AC6ED0 /* Scores+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scores+CoreDataClass.swift"; sourceTree = "<group>"; };
+		A9DCBFA71E1F431600AC6ED0 /* Scores+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Scores+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		A9DCBFAA1E1F435700AC6ED0 /* CoreDataConnect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataConnect.swift; sourceTree = "<group>"; };
 		F577B38B1CB81F840005E827 /* Your Email.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Your Email.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F577B38E1CB81F840005E827 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F577B3901CB81F840005E827 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -79,6 +87,9 @@
 		F577B3821CB81F840005E827 = {
 			isa = PBXGroup;
 			children = (
+				A9DCBFA61E1F431600AC6ED0 /* Scores+CoreDataClass.swift */,
+				A9DCBFA71E1F431600AC6ED0 /* Scores+CoreDataProperties.swift */,
+				A9DCBFAA1E1F435700AC6ED0 /* CoreDataConnect.swift */,
 				F577B38D1CB81F840005E827 /* Your Email */,
 				F577B38C1CB81F840005E827 /* Products */,
 				A96137F21E1ECB76008696E1 /* Frameworks */,
@@ -104,6 +115,7 @@
 				A9DCBF9B1E1F3C3400AC6ED0 /* ScoreScene.swift */,
 				A9DCBF931E1ED9E400AC6ED0 /* MenuScene.sks */,
 				A9DCBF951E1EDA0700AC6ED0 /* MenuScene.swift */,
+				A9DCBF9F1E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld */,
 				F577B3AA1CB820920005E827 /* Game States */,
 				F577B3961CB81F840005E827 /* Main.storyboard */,
 				F577B3991CB81F840005E827 /* Assets.xcassets */,
@@ -230,12 +242,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				F577B3931CB81F840005E827 /* GameScene.swift in Sources */,
+				A9DCBFAB1E1F435700AC6ED0 /* CoreDataConnect.swift in Sources */,
 				F577B3A91CB8208A0005E827 /* WaitingForTap.swift in Sources */,
+				A9DCBFA81E1F431600AC6ED0 /* Scores+CoreDataClass.swift in Sources */,
+				A9DCBFA91E1F431600AC6ED0 /* Scores+CoreDataProperties.swift in Sources */,
 				F577B3951CB81F840005E827 /* GameViewController.swift in Sources */,
 				F577B38F1CB81F840005E827 /* AppDelegate.swift in Sources */,
 				F577B3A71CB8208A0005E827 /* GameOver.swift in Sources */,
 				A9DCBF961E1EDA0700AC6ED0 /* MenuScene.swift in Sources */,
 				A9DCBF9C1E1F3C3400AC6ED0 /* ScoreScene.swift in Sources */,
+				A9DCBFA11E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld in Sources */,
 				F577B3A81CB8208A0005E827 /* Playing.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +416,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A9DCBF9F1E1F3E8300AC6ED0 /* ScoreModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A9DCBFA01E1F3E8300AC6ED0 /* ScoreModel.xcdatamodel */,
+			);
+			currentVersion = A9DCBFA01E1F3E8300AC6ED0 /* ScoreModel.xcdatamodel */;
+			path = ScoreModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F577B3831CB81F840005E827 /* Project object */;
 }
