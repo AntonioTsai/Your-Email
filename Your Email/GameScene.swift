@@ -134,11 +134,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
     lblStars.fontSize = 30
     lblStars.fontColor = SKColor.white
-    lblStars.position = CGPoint(x: 50, y: self.size.height-40)
+    lblStars.position = CGPoint(x: 80, y: self.size.height-40)
     lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
-    
-    // 3
-    lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
+    lblStars.text = String(format: "%d", GameState.sharedInstance.highScore)
     hudNode.addChild(lblStars)
     
     // Score
