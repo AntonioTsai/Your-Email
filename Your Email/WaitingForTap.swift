@@ -21,6 +21,9 @@ class WaitingForTap: GKState {
     // Show the "TAP TO START" message
     let scale = SKAction.scale(to: 1.0, duration: 0.25)
     scene.childNode(withName: GameMessageName)!.run(scale)
+    
+    // HUD Rest Score
+    GameState.sharedInstance.score = 0
   }
   
   override func willExit(to nextState: GKState) {
