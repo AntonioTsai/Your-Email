@@ -95,9 +95,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
 //                let s = Int(score.text!)
 //                score.text = String(s! + 1)
+                // For HUD
+                //----------------------------------------
                 GameState.sharedInstance.score += 1
                 lblScore.text = String(format: "%d", GameState.sharedInstance.score)
-
+                //----------------------------------------
                 // Check if the game has been win
                 if isGameWin() {
                     // Change State because no block on the screen
@@ -114,15 +116,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // For HUD
     //----------------------------------------
     hudNode = SKNode()
+    hudNode.zPosition = 10
     addChild(hudNode)
     
     // Build the HUD
     
-    // Stars
+    // Label "BEST"
     // 1
-    let star = SKSpriteNode(imageNamed: "Star")
-    star.position = CGPoint(x: 25, y: self.size.height-30)
-    hudNode.addChild(star)
+    let best = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    best.fontSize = 30
+    best.fontColor = SKColor.white
+    best.position = CGPoint(x: 40, y: self.size.height-40)
+    best.text = "BEST"
+    hudNode.addChild(best)
     
     // 2
     lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
