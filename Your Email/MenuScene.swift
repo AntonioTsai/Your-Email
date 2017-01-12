@@ -29,13 +29,6 @@ class MenuScene: SKScene {
                     if let scene = GameScene(fileNamed:"GameScene") {
                         self.view?.presentScene(scene, transition: transition)
                     }
-                } else if theName == "scoreboard" {
-                    // Show Scoreboard
-                    /*
-                     if let scene = GameScene(fileNamed:"ScoreScene") {
-                        self.view?.presentScene(scene, transition: transition)
-                     }
-                     */
                 }
             }
         }
