@@ -41,6 +41,15 @@ let PaddleCategory : UInt32 = 0x1 << 3
 let BorderCategory : UInt32 = 0x1 << 4
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    // For HUD
+    //----------------------------------------
+    var hudNode: SKNode!
+    
+    // Labels for score and stars
+    var lblScore: SKLabelNode!
+    var lblStars: SKLabelNode!
+    //----------------------------------------
+    
     var isFingerOnPaddle = false
 
     // Create state machine
@@ -83,10 +92,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 breakBlock(node: secondBody.node!)
 
                 // change score
-                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
-                let s = Int(score.text!)
-                score.text = String(s! + 1)
-
+//                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
+//                let s = Int(score.text!)
+//                score.text = String(s! + 1)
+                // For HUD
+                //----------------------------------------
+                GameState.sharedInstance.score += 1
+                lblScore.text = String(format: "%d", GameState.sharedInstance.score)
+                //----------------------------------------
                 // Check if the game has been win
                 if isGameWin() {
                     // Change State because no block on the screen
@@ -99,6 +112,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
+    
+    // For HUD
+    //----------------------------------------
+    hudNode = SKNode()
+    hudNode.zPosition = 10
+    addChild(hudNode)
+    
+    // Build the HUD
+    
+    // Label "BEST"
+    // 1
+    let best = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    best.fontSize = 30
+    best.fontColor = SKColor.white
+    best.position = CGPoint(x: 40, y: self.size.height-40)
+    best.text = "BEST"
+    hudNode.addChild(best)
+    
+    // 2
+    lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    lblStars.fontSize = 30
+    lblStars.fontColor = SKColor.white
+    lblStars.position = CGPoint(x: 80, y: self.size.height-40)
+    lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    lblStars.text = String(format: "%d", GameState.sharedInstance.highScore)
+    hudNode.addChild(lblStars)
+    
+    // Score
+    // 4
+    lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    lblScore.fontSize = 30
+    lblScore.fontColor = SKColor.white
+    lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
+    lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+    
+    // 5
+    lblScore.text = "0"
+    hudNode.addChild(lblScore)
+    //----------------------------------------
 
     // Set BG
     let bg = SKSpriteNode(imageNamed: "bg")
