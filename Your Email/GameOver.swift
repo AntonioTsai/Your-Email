@@ -23,10 +23,17 @@ class GameOver: GKState {
         ball.physicsBody!.linearDamping = 1.0
         scene.physicsWorld.gravity = CGVector(dx: 0.0, dy: -9.8)
         
-        // Back to Menu
+        
         let transition:SKTransition = SKTransition.fade(withDuration: 1)
         var _:SKScene
-        if let scene = MenuScene(fileNamed:"MenuScene") {
+        // Back to Menu
+//        if let scene = MenuScene(fileNamed:"MenuScene") {
+//            self.scene.view?.presentScene(scene, transition: transition)
+//        }
+        // Save high score
+        GameState.sharedInstance.saveState()
+        // Go to Score Scene
+        if let scene = ScoreScene(fileNamed:"ScoreScene") {
             self.scene.view?.presentScene(scene, transition: transition)
         }
     }

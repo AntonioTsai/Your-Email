@@ -51,22 +51,8 @@ class ScoreScene: SKScene {
         var _:SKScene
         
         print("Touch Event!")
-        for touch in touches {
-            let location = (touch as UITouch).location(in: self)
-            if let theName = self.atPoint(location).name {
-                if theName == "newGame" {
-                    if let scene = GameScene(fileNamed:"GameScene") {
-                        self.view?.presentScene(scene, transition: transition)
-                    }
-                } else if theName == "scoreboard" {
-                    // Show Scoreboard
-                    /*
-                     if let scene = GameScene(fileNamed:"ScoreScene") {
-                     self.view?.presentScene(scene, transition: transition)
-                     }
-                     */
-                }
-            }
+        if let scene = MenuScene(fileNamed:"MenuScene") {
+            self.scene?.view?.presentScene(scene, transition: transition)
         }
     }
     
