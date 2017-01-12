@@ -32,6 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        /*
         // Connect to CoreData
         let myEntityName = "Scores"
         let moc = DataController().managedObjectContext
@@ -45,6 +46,7 @@ class GameViewController: UIViewController {
             as? Int {
             seq = idSeq + 1
         }
+        */
 
         //if let scene = GameScene(fileNamed:"GameScene") {
         if let scene = MenuScene(fileNamed:"MenuScene") {
