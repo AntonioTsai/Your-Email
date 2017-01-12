@@ -41,6 +41,15 @@ let PaddleCategory : UInt32 = 0x1 << 3
 let BorderCategory : UInt32 = 0x1 << 4
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+    // For HUD
+    //----------------------------------------
+    var hudNode: SKNode!
+    
+    // Labels for score and stars
+    var lblScore: SKLabelNode!
+    var lblStars: SKLabelNode!
+    //----------------------------------------
+    
     var isFingerOnPaddle = false
 
     // Create state machine
@@ -99,6 +108,43 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   
   override func didMove(to view: SKView) {
     super.didMove(to: view)
+    
+    // For HUD
+    //----------------------------------------
+    hudNode = SKNode()
+    addChild(hudNode)
+    
+    // Build the HUD
+    
+    // Stars
+    // 1
+    let star = SKSpriteNode(imageNamed: "Star")
+    star.position = CGPoint(x: 25, y: self.size.height-30)
+    hudNode.addChild(star)
+    
+    // 2
+    lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    lblStars.fontSize = 30
+    lblStars.fontColor = SKColor.white
+    lblStars.position = CGPoint(x: 50, y: self.size.height-40)
+    lblStars.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.left
+    
+    // 3
+    lblStars.text = String(format: "X %d", GameState.sharedInstance.stars)
+    hudNode.addChild(lblStars)
+    
+    // Score
+    // 4
+    lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
+    lblScore.fontSize = 30
+    lblScore.fontColor = SKColor.white
+    lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
+    lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
+    
+    // 5
+    lblScore.text = "0"
+    hudNode.addChild(lblScore)
+    //----------------------------------------
 
     // Set BG
     let bg = SKSpriteNode(imageNamed: "bg")
