@@ -9,6 +9,13 @@ class ScoreScene: SKScene {
     
     //  Implement didBegin(_:) to handle the collisions
     func didBegin(_ contact: SKPhysicsContact) {
+    }
+    
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        print("%d", GameState.sharedInstance.score)
+        print("%d", GameState.sharedInstance.highScore)
+        
         // Score
         let lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         lblScore.fontSize = 60
@@ -35,10 +42,7 @@ class ScoreScene: SKScene {
         lblTryAgain.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         lblTryAgain.text = "Tap To Try Again"
         addChild(lblTryAgain)
-    }
-    
-    override func didMove(to view: SKView) {
-        super.didMove(to: view)
+
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
