@@ -32,6 +32,10 @@ class GameOver: GKState {
 //        }
         // Save high score
         GameState.sharedInstance.saveState()
+        
+        // Easter Egg -- Easter flag reset
+        GameState.sharedInstance.easter = 0
+        
         // Go to Score Scene
         if let scene = ScoreScene(fileNamed:"ScoreScene") {
             self.scene.view?.presentScene(scene, transition: transition)

@@ -11,6 +11,7 @@ class GameState {
     var score: Int
     var highScore: Int
     var stars: Int
+    var easter: Int
 
     class var sharedInstance: GameState {
         struct Singleton {
@@ -25,6 +26,8 @@ class GameState {
         score = 0
         highScore = 0
         stars = 0
+        // Easter Egg
+        easter = 0
 
         // Load game state
         let defaults = UserDefaults.standard
