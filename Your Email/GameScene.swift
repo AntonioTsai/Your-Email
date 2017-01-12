@@ -92,9 +92,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 breakBlock(node: secondBody.node!)
 
                 // change score
-                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
-                let s = Int(score.text!)
-                score.text = String(s! + 1)
+//                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
+//                let s = Int(score.text!)
+//                score.text = String(s! + 1)
+                GameState.sharedInstance.score += 1
+                lblScore.text = String(format: "%d", GameState.sharedInstance.score)
 
                 // Check if the game has been win
                 if isGameWin() {
