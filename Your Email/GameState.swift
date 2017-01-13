@@ -13,6 +13,7 @@ class GameState {
     var stars: Int
     var easter: Int
 
+    // Make the variables accessable
     class var sharedInstance: GameState {
         struct Singleton {
             static let instance = GameState()
@@ -26,7 +27,7 @@ class GameState {
         score = 0
         highScore = 0
         stars = 0
-        // Easter Egg
+        // Easter Egg Flag
         easter = 0
 
         // Load game state
@@ -37,6 +38,7 @@ class GameState {
     }
 
     func saveState() {
+        // When GameOver
         // Update highScore if the current score is greater
         highScore = max(score, highScore)
 

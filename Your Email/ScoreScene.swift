@@ -13,10 +13,10 @@ class ScoreScene: SKScene {
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
-        print("%d", GameState.sharedInstance.score)
-        print("%d", GameState.sharedInstance.highScore)
+//        print("%d", GameState.sharedInstance.score)
+//        print("%d", GameState.sharedInstance.highScore)
         
-        // Score
+        // Label to Display Score
         let lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         lblScore.fontSize = 60
         lblScore.fontColor = SKColor.white
@@ -25,7 +25,7 @@ class ScoreScene: SKScene {
         lblScore.text = String(format: "%d", GameState.sharedInstance.score)
         addChild(lblScore)
         
-        // High Score
+        // Label to Display High Score
         let lblHighScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         lblHighScore.fontSize = 30
         lblHighScore.fontColor = SKColor.cyan
@@ -34,7 +34,7 @@ class ScoreScene: SKScene {
         lblHighScore.text = String(format: "High Score: %d", GameState.sharedInstance.highScore)
         addChild(lblHighScore)
         
-        // Try again
+        // "Try again" Label
         let lblTryAgain = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
         lblTryAgain.fontSize = 30
         lblTryAgain.fontColor = SKColor.white

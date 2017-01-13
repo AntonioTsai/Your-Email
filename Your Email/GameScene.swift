@@ -95,7 +95,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //                let score = childNode(withName: ScoreMessageName) as! SKLabelNode
 //                let s = Int(score.text!)
 //                score.text = String(s! + 1)
-                // For HUD
+                // For HUD Display
                 //----------------------------------------
                 GameState.sharedInstance.score += 1
                 lblScore.text = String(format: "%d", GameState.sharedInstance.score)
@@ -122,7 +122,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // Build the HUD
     
     // Label "BEST"
-    // 1
     let best = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
     best.fontSize = 30
     best.fontColor = SKColor.white
@@ -130,7 +129,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     best.text = "BEST"
     hudNode.addChild(best)
     
-    // 2
+    // Label to Display Best Score
     lblStars = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
     lblStars.fontSize = 30
     lblStars.fontColor = SKColor.white
@@ -139,15 +138,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     lblStars.text = String(format: "%d", GameState.sharedInstance.highScore)
     hudNode.addChild(lblStars)
     
-    // Score
-    // 4
+    // Label to Display Score
     lblScore = SKLabelNode(fontNamed: "ChalkboardSE-Bold")
     lblScore.fontSize = 30
     lblScore.fontColor = SKColor.white
     lblScore.position = CGPoint(x: self.size.width-20, y: self.size.height-40)
     lblScore.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.right
     
-    // 5
+    // Default score to 0
     lblScore.text = "0"
     hudNode.addChild(lblScore)
     //----------------------------------------

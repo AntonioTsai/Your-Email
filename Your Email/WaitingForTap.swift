@@ -22,7 +22,7 @@ class WaitingForTap: GKState {
     let scale = SKAction.scale(to: 1.0, duration: 0.25)
     scene.childNode(withName: GameMessageName)!.run(scale)
     
-    // HUD Rest Score
+    // Rest Score to 0 on HUD 
     GameState.sharedInstance.score = 0
   }
   
