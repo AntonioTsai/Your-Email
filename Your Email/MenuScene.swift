@@ -25,7 +25,14 @@ class MenuScene: SKScene {
         for touch in touches {
             let location = (touch as UITouch).location(in: self)
             if let theName = self.atPoint(location).name {
-                if theName == "newGame" {
+                // Easter egg
+                if theName == "n" {
+                    GameState.sharedInstance.easter = 1
+                    print(GameState.sharedInstance.easter)
+                    if let scene = GameScene(fileNamed:"GameScene") {
+                        self.view?.presentScene(scene, transition: transition)
+                    }
+                } else if theName == "newGame" {
                     if let scene = GameScene(fileNamed:"GameScene") {
                         self.view?.presentScene(scene, transition: transition)
                     }
