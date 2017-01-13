@@ -201,24 +201,74 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let xOffset = (frame.width - blockWidth * 7) / 2
     var yOffset : CGFloat = 0
 
-    for i in 0..<numberOfBlocks {
-        let block = SKSpriteNode(imageNamed: "block.png")
-        
-        // Next Line
-        if(i != 0 && i % 7 == 0) {
-            yOffset = yOffset + blockHeight
+    if GameState.sharedInstance.easter == 1 {
+        var arr = [Bool]()
+        for _ in 0..<56 {
+            arr.append(true)
         }
-        block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i % 7) + 0.5) * blockWidth, y: frame.height * 0.8 - yOffset)
-
-        block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
-        block.physicsBody!.allowsRotation = false
-        block.physicsBody!.friction = 0.0
-        block.physicsBody!.affectedByGravity = false
-        block.physicsBody!.isDynamic = false
-        block.name = BlockCategoryName
-        block.physicsBody!.categoryBitMask = BlockCategory
-        block.zPosition = 2
-        addChild(block)
+        // Random
+        var randomNum:UInt32
+        var i = 28
+        while i > 0 {
+            i -= 1
+            randomNum = arc4random_uniform(56)
+            if arr[Int(randomNum)] == true {
+                arr[Int(randomNum)] = false
+            } else {
+                i += 1
+            }
+        }
+        var x = 0, y = 0
+        for i in 0..<56 {
+            if arr[i] {
+                x += 1
+            } else {
+                y += 1
+            }
+        }
+        print("x ", x, "y ", y)
+        // Place brick
+        for i in 0..<56 {
+            // Next Line
+            if(i != 0 && i % 7 == 0) {
+                yOffset = yOffset + blockHeight
+                print("yOffset", yOffset, "i", i)
+            }
+            if arr[i] {
+                let block = SKSpriteNode(imageNamed: "block.png")
+                block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i % 7) + 0.5) * blockWidth, y: frame.height - yOffset)
+            
+                block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
+                block.physicsBody!.allowsRotation = false
+                block.physicsBody!.friction = 0.0
+                block.physicsBody!.affectedByGravity = false
+                block.physicsBody!.isDynamic = false
+                block.name = BlockCategoryName
+                block.physicsBody!.categoryBitMask = BlockCategory
+                block.zPosition = 2
+                addChild(block)
+            }
+        }
+    } else {
+        for i in 0..<numberOfBlocks {
+            let block = SKSpriteNode(imageNamed: "block.png")
+            
+            // Next Line
+            if(i != 0 && i % 7 == 0) {
+                yOffset += blockHeight
+            }
+            block.position = CGPoint(x: xOffset + CGFloat(CGFloat(i % 7) + 0.5) * blockWidth, y: frame.height * 0.8 - yOffset)
+            
+            block.physicsBody = SKPhysicsBody(rectangleOf: block.frame.size)
+            block.physicsBody!.allowsRotation = false
+            block.physicsBody!.friction = 0.0
+            block.physicsBody!.affectedByGravity = false
+            block.physicsBody!.isDynamic = false
+            block.name = BlockCategoryName
+            block.physicsBody!.categoryBitMask = BlockCategory
+            block.zPosition = 2
+            addChild(block)
+        }
     }
 
     // WaitingForTap State
